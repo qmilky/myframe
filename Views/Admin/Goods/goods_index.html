@@ -1,0 +1,112 @@
+<?php
+
+    include('./Views/Admin/Common/header.html');
+
+?>
+<!--/sidebar-->
+<div class="main-wrap">
+
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">作品管理</span></div>
+    </div>
+    <div class="search-wrap">
+        <div class="search-content">
+            <form action="./index.php" method="GET">
+                <input type="hidden" name="m" value="admin" />
+                <input type="hidden" name="c" value="goods" />
+                <input type="hidden" name="f" value="index" />
+
+                <table class="search-tab">
+                    <tr>
+                        <th width="120">选择分类:</th>
+                        <td>
+                            <select name="cid" id="">
+                                <option value="">全部</option>
+                                <?php
+                                      foreach($cates as $m=>$n){
+                                $a = substr_count($n->path,',')-1;
+                                echo "<option value='{$n->id}'";
+                                if($n->id == $_GET['cid']){ echo "selected";}
+                                echo ">";
+
+
+
+                                echo str_repeat('&nbsp;',$a*4);
+                                echo "|--{$n->cname}</option>";
+                                }
+                                ?>
+                            </select>
+                        </td>
+                        <th width="70">关键字:</th>
+                        <td><input class="common-text" placeholder="关键字" name="gname" value="<?=$_GET['gname']?>" id="" type="text"></td>
+                        <td><input class="common-text" name="shijian" value="" id="" type="date"></td>
+
+                        <td><input class="btn btn-primary btn2"  value="查询" type="submit"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="result-wrap">
+        <form name="myform" id="myform" method="post">
+            <div class="result-title">
+                <div class="result-list">
+                    <a href="insert.html"><i class="icon-font"></i>新增作品</a>
+                    <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                    <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
+                </div>
+            </div>
+            <div class="result-content">
+                <table class="result-tab" width="100%">
+                    <tr>
+                        <th>编号</th>
+                        <th>商品名称</th>
+                        <th>图片</th>
+                        <th>类别</th>
+                        <th>库存</th>
+                        <th>定价</th>
+                        <th>销量</th>
+                        <th>上架时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    <?php foreach($goods as $k=>$v): ?>
+                    <tr>
+                        <td><?=$v->id?></td>
+                        <td><?=$v->gname?></td>
+                        <td><img src="<?=SAVEPATH.'sm_'.$v->gpic?>" /></td>
+                        <td><?=$cate[$v->cid]?></td>
+                        <td><?=$v->stock?></td>
+                        <td><?=$v->price?></td>
+                        <td><?=$v->salecnt?></td>
+                        <td><?=date('Y-m-d H:i:s',$v->ctime)?></td>
+                        <td><?php
+                                if ($v->status==1){
+                            echo '新品';
+                            } elseif ($v->status==2){
+                            echo '上架';
+                            } elseif ($v->status==3) {
+                            echo '下架';
+                            }
+                            ?></td>
+                        <td>
+                            <a class="link-update" href="./index.php?m=admin&c=goods&f=edit&gid=<?=$v->id?>">修改</a>
+                            <a class="link-del" href="./index.php?m=admin&c=goods&f=del&gid=<?=$v->id?>">删除</a>
+                            <?php if($v->status==3 || $v->status==1): ?>
+                            <a class="link-update" href="./index.php?m=admin&c=goods&f=upperShelves&gid=<?=$v->id?>">上架</a>
+                            <?php else:  ?>
+                            <a class="link-update" href="./index.php?m=admin&c=goods&f=lowerShelves&gid=<?=$v->id?>">下架</a>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <?php endforeach;  ?>
+                </table>
+                <!--<div class="list-page"> 2 条 1/1 页</div>-->
+            </div>
+        </form>
+    </div>
+</div>
+<!--/main-->
+</div>
+</body>
+</html>

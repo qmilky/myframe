@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{margin:0px;padding:0px;}
+        #top{background-color:#F1F1F1;}
+        #top-m{width:990px;margin:0px auto;font-size:12px;line-height:30px;color:#6A6A6A;}
+        #top-m:after{content:'';display:block;clear:both;}
+        #top-m-l{float:left;}
+        #top-m-r{float:right;}
+        #top-img{display:block;margin:0px auto;width:990px;margin-bottom:10px;}
+        #order{margin:0px auto;width:990px;border:1px solid #f0f0f0;}
+        #o-title{font-size:14px;float:left;height:40px;line-height:40px;text-indent:20px;font-weight:bold;}
+        #o-add{font-size:13px;float:right;height:40px;line-height:40px;margin-right:20px;text-decoration:none;color:#005EA7;}
+        #o-addr{margin-left:40px;margin-top:10px;border:2px solid #E4393C;display:inline-block;padding:5px 50px;position:relative;}
+        #o-addr>i{position:absolute;right:0px;bottom:0px;border:1px solid #e4393c;border-width:7px;border-color:transparent #E4393C #E4393C transparent;}
+        #o-addr>b{position:absolute;right:0px;bottom:-3px;color:white;}
+        #o-name{height:50px;margin-left:20px;}
+        #o-addres{margin-left:17px;}
+        #o-tel{margin-left:17px;}
+        #o-line{width:900px;margin:35px auto 0px auto;border:1px solid #f0f0f0;}
+        #o-shqd{float:left;height:30px;margin-left:43px;line-height:50px;font-size:14px;font-weight:bold;}
+        #o-jgsm{float:right;height:30px;margin-right:45px;line-height:50px;font-size:14px;}
+        #o-content{width:910px;margin:0px auto;clear:both;margin-top:40px;background-color:#F7F7F7;}
+        #o-content::after{content:'';display:block;clear:both;}
+        /*#o-content-l{height:100%;background-color:pink;float:left;}*/
+        #opcon{float:right;width:580px;background-color:white;}
+        #opcon::after{content:'';display:block;clear:both;}
+        .o-con-d{width:580px;height:150px;float:right;background-color:#F3FBFE;margin-bottom:3px;}
+
+        .o-pic{float:left;margin-top:27px;margin-left:20px;}
+        .o-m{width:288px;float:left;}
+        .o-name{display:inline-block;width:270px;margin-top:27px;margin-left:10px;font-size:14px;}
+        .o-tui{margin-top:12px;margin-left:10px;display:block;text-indent:20px;height:30px;line-height:30px;font-size:13px;color:#FF6C00;background:url('./Public/images/purchase-icon.png') no-repeat 0px -79px;}
+        .o-price{float:left;height:50px;line-height:70px;margin-right:20px;color:#E4393C;font-weight:bold;}
+        .o-cnt{float:left;height:50px;line-height:70px;margin-right:20px;}
+        .o-state{float:left;height:50px;line-height:70px;}
+
+        #o-za{width:990px;margin:0px auto;}
+        #o-zafei1{width:128px;float:right;height:100px;margin-right:42px;text-align:right;}
+        #o-zafei2{width:198px;float:right;height:100px;text-align:right;}
+        .o-zafei{margin-top:7px;}
+        #o-end{width:990px;height:80px;background-color:#F4F4F4;margin:0px auto;border-radius:3px;margin-top:5px;text-align:right;}
+        #o-end>div{line-height:40px;padding-right:40px;}
+        #o-end1>b{color:#E4393C;}
+        #o-end2{font-size:13px;}
+        #o-submit{float:right;width:135px;height:36px;background:url('./Public/images/btn-submit.jpg') no-repeat;margin-right:48px;margin-top:10px;}
+        #o-final{width:990px;margin:0px auto;height:100px;height:86px;}
+
+
+
+        /* 底 部 */
+        #bottom{height:100px;background-color:#F5F5F5;}
+        #b_m{margin:0px auto;width:1210px;}
+        #b_m>img{float:left;margin-left:10px;margin-top:20px;margin-right:72px;}
+        #footer{margin:0px auto;width:1210px;height:300px;}
+        #footer dl{float:left;margin-right:120px;}
+        #footer dt{height:30px;}
+        #footer dd{font-size:12px;margin-left:0px;line-height:20px;}
+    </style>
+</head>
+<body>
+<div id='top'>
+    <div id='top-m'>
+        <span id='top-m-l'>送至：北京</span>
+        <span id='top-m-r'>景水 退出 | 我的订单 | 我的京东 | 京东会员 | 企业采购 | 手机京东 | 关注京东 | 客户服务 | 网站导航</span>
+    </div>
+</div>
+<!--<img id='top-img' src="./Public/images/top.png" alt="">-->
+<div id='order'>
+    <span id='o-title'>收货人信息</span>
+    <a href='' id='o-add'>新增收货地址</a>
+    <div style='clear:both;'></div>
+    <span id='o-addr'><?=$_SESSION['order']['rec']?><i></i><b>v</b></span>
+    <span id='o-name'><?=$_SESSION['order']['rec']?></span>
+    <span id='o-addres'><?=$_SESSION['order']['addr']?></span>
+    <span id='o-tel'><?=$_SESSION['order']['tel']?></span>
+    <div id='o-line'></div>
+    <span id='o-shqd'>送货清单</span>
+    <span id='o-jgsm'>价格说明   返回修改购物车</span>
+    <div id='o-content'>
+
+        <img src="./Public/images/pstime.png" alt="">
+
+
+        <div id='opcon'>
+
+            <?php foreach($_SESSION['cart'] as $k=>$v): ?>
+            <div class='o-con-d'>
+                <img class='o-pic' src="<?=SAVEPATH.'sm_'.$v->gpic?>" alt="">
+                <div class='o-m'>
+					 		<span class='o-name'>
+					 		   <?=$v->gname?>
+					 		</span>
+                    <span class='o-tui'>7天无理由退货</span>
+                </div>
+                <span class='o-price'>￥<?=$v->price?></span><span class='o-cnt'>x<?=$v->bcnt?></span><span class='o-state'>有货</span>
+            </div>
+
+            <?php endforeach; ?>
+
+        </div>
+
+    </div>
+    <div style='clear:both;'></div>
+</div>
+<div id='o-za'>
+    <div id='o-zafei1'>
+        <div class='o-zafei'>￥<?=$_SESSION['order']['ormb']?></div>
+        <div class='o-zafei'>-￥0.00</div>
+        <div class='o-zafei'>￥0.00</div>
+        <div class='o-zafei'>￥0.00</div>
+    </div>
+    <div id='o-zafei2'>
+        <div class='o-zafei'><?=$_SESSION['order']['ocnt']?> 件商品，总商品金额：</div>
+        <div class='o-zafei'>返现：</div>
+        <div class='o-zafei'>运费：</div>
+        <div class='o-zafei'>服务费：</div>
+    </div>
+    <div style='clear:both;'></div>
+</div>
+<div id='o-end'>
+    <div id='o-end1'><span>应付总额：</span> <b>￥<?=$_SESSION['order']['ormb']?></b></div>
+    <div id='o-end2'><span>寄送至： <?=$_SESSION['order']['addr']?></span>&nbsp;&nbsp;<span>收货人：<?=$_SESSION['order']['rec'].'&nbsp;&nbsp;'.$_SESSION['order']['tel']   ?></span></div>
+</div>
+<div id='o-final'>
+    <a id='o-submit' href="./index.php?m=home&c=order&f=finished"></a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+body{padding:0px;margin:0px;}
+
+#header{
+	height:80px;width:990px;
+	margin:0px auto;
+	}
+#header #logo{margin-top:10px;}	
+#header #hy{vertical-align:middle;margin-top:-52px;margin-left:12px;}	
+
+#mainbody{height:475px;background-color:#E93854;}
+#content{
+	height:475px;width:990px;
+	/* opacity:0.5;  */
+	background:url('../images/bg2.png');
+	margin:0px auto;
+}	
+#login-form{
+	width:345px;height:370px;
+	background-color:white;
+	float:right;
+	margin-top:40px;
+	position:relative;
+}
+#lf-top{
+	height:30px;
+	line-height:30px;
+	padding:13px 53px;
+	font-size:20px;
+	font-weight:bold;
+	font-family:Î¢ÈíÑÅºÚ;
+}
+#lf-top-1{
+	float:left;
+	color:#666666;
+}
+#lf-top-2{
+	float:right;
+	color:#E4393C;
+}
+
+#lf-notice{
+	width:303px;height:24px;
+	margin-top:9px;
+	margin-left:21px;
+	text-align:center;
+	font-size:12px;
+	color:#666666;
+	line-height:24px;
+	background:
+	   url('../images/pwd-icons-new.png') no-repeat -95px -20px,
+	   #FFF6D2;
+	border:1px solid #FFE57D;
+}
+
+#lf-uname{
+    margin-top:10px;
+	margin-left:19px;
+	position:relative;
+    
+}
+#lf-uname i{
+	position:absolute;left:1px;top:1px;
+	width:39px;height:36px;
+    border-right:1px solid #A9A9A9;
+	background:url('../images/pwd-icons-new.png') no-repeat 0px 0px;
+	}
+#lf-uname input{
+    text-indent:50px;
+	width:301px;height:32px;
+}
+
+#lf-upwd{
+    margin-top:22px;
+	margin-left:19px;
+	position:relative;
+}
+
+#lf-upwd i{
+	position:absolute;left:1px;top:1px;
+	width:39px;height:36px;
+    border-right:1px solid #A9A9A9;
+	background:url('../images/pwd-icons-new.png') no-repeat -47px 0px;
+	}
+#lf-upwd input{
+    text-indent:50px;
+	width:301px;height:32px;
+}
+
+
+#lf-auto{
+    margin-top:22px;
+	margin-left:19px;
+	position:relative;
+	font-size:12px;
+}
+#lf-auto span:first-child{margin-right:184px;}
+#lf-auto input{vertical-align:middle;}
+
+
+#lf-submit{
+	width:305px;height:35px;
+	background-color:#E4393C;
+    margin-top:10px;
+	margin-left:19px;
+	position:relative;
+	text-align:center;
+	font-size:22px;
+	color:white;
+	font-weight:bold;
+    border:0px;
+}
+
+
+#lf-bottom{
+	width:305px;height:53px;
+    margin-top:10px;
+	margin-left:19px;
+	position:absolute;
+	bottom:0px;
+	font-size:12px;
+	line-height:53px;
+}
+#lf-bottom span:nth-child(2){
+	margin-left:9px;
+	margin-right:5px;
+	padding:0px 15px;
+	border-left:1px solid #666;
+	border-right:1px solid #666;
+}
+#lf-bottom span:last-child{
+	float:right;
+	font-size:14px;
+	color:#B61D1D;
+}
+#lf-bottom span>i{
+	display:inline-block;
+	width:20px;height:20px;
+	background:url('../images/pwd-icons-new.png') no-repeat -102px -73px;
+	vertical-align:middle;}
+
+#footer{
+	width:990px;height:100px;
+	margin:0px auto;
+}
+#dcwj{
+    float:right;
+    font-size:12px;
+    color:#999;
+    padding-left:22px;
+    background:url('../images/q-icon.png') no-repeat 0px 0px;
+    margin:10px 0px;
+}
+
+#footer-2{
+    font-size:12px;
+    text-align:center;
+    line-height:24px;
+    color:#666666;
+}
