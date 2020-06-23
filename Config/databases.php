@@ -4,8 +4,8 @@
 //const HOST = 'http://myframe.qymblog.com';  //必须是ip？？？
 const HOST = '47.94.149.55';  //必须是ip？？？
 const DBNAME = 'shop';
-const USER = 'root';
-const UPWD = 'bian0714';
+const USER = '';
+const UPWD = '';
 const DSN = 'mysql:host='.HOST.';dbname='.DBNAME.';charset=utf8';
 
 
